@@ -1,0 +1,5 @@
+C:\Users\k.patel61\Desktop\Data_Managment\obj\Debug\net5.0\Data_Managment.csproj.AssemblyReference.cache
+C:\Users\k.patel61\Desktop\Data_Managment\obj\Debug\net5.0\Data_Managment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\k.patel61\Desktop\Data_Managment\obj\Debug\net5.0\Data_Managment.AssemblyInfoInputs.cache
+C:\Users\k.patel61\Desktop\Data_Managment\obj\Debug\net5.0\Data_Managment.AssemblyInfo.cs
+C:\Users\k.patel61\Desktop\Data_Managment\obj\Debug\net5.0\Data_Managment.csproj.CoreCompileInputs.cache
