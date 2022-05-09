@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Data_Managment
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            String[] products = System.IO.File.ReadAllLines(@"data-files/grocery.txt");
-            Console.WriteLine("***DICTIONARY***"); printStringArray(products, 0, 50);
+            String products = System.IO.File.ReadAllText(@"data-files/grocery.txt");
+            String[] productsArr = Regex.Split(products, @",");
+            printStringArray(productsArr, 0, 3);
             while (true){
                 //diplays menu options
                 Console.WriteLine(@"
@@ -38,12 +40,13 @@ namespace Data_Managment
                 Console.Write("That was not a valid choice!");
             }
         }
-
-
-
-
-
+        static void printStringArray(String[] array, int start, int stop) {
+            // Print out array elements at index values from start to stop 
+            for (int i = start; i < stop; i++) {
+            Console.WriteLine(array[i]);
+            }
     }
   }
+}
 }
 
