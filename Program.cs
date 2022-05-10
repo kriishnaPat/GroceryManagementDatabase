@@ -7,10 +7,15 @@ namespace Data_Managment
     {
         public static void Main(string[] args)
         {
-            String products = System.IO.File.ReadAllText(@"data-files/grocery.txt");
-            String[] productsArr = Regex.Split(products, @",");
-            printStringArray(productsArr, 0, 3);
+        String aliceText = System.IO.File.ReadAllText(@"data-files/grocery.txt");
+        String[] aliceWords = Regex.Split(aliceText, @"\s+");
+        Console.WriteLine("***ALICE WORDS***");
+        for (int i = 0; i < aliceWords.Length; i++) {
+            Console.WriteLine(aliceWords[i]);
+        }
+  
             while (true){
+                //usercheck();
                 //diplays menu options
                 Console.WriteLine(@"
 1.Display all of the products
@@ -23,7 +28,6 @@ namespace Data_Managment
             Console.Write("Enter the number for your choice: ");
             int user_choice = Convert.ToInt32(Console.ReadLine());
             if (user_choice == 1){
-                
             } 
             else if (user_choice == 2){
             }
@@ -40,13 +44,8 @@ namespace Data_Managment
                 Console.Write("That was not a valid choice!");
             }
         }
-        static void printStringArray(String[] array, int start, int stop) {
-            // Print out array elements at index values from start to stop 
-            for (int i = start; i < stop; i++) {
-            Console.WriteLine(array[i]);
-            }
+        }
     }
-  }
 }
-}
+
 
