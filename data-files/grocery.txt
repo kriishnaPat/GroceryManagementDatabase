@@ -1,0 +1,30 @@
+Rice, $10, 34567/
+White Bread, $5, 23493/
+Whole Grain Bread, $5, 23494/
+Milk, $3, 09876/
+Apple, $2, 45678/
+Orange, $2, 45677/
+Lemon, $2, 45676/
+Lime, $2, 45675/
+Pineapple, $4, 45674/
+Toothpaste, $2, 22334/
+Mouthwash, $2, 22333/
+Mayonnaise, $2, 56569/
+Ketchup, $2, 56568/
+Garlic, $2, 22233/
+Onion, $2, 22234/
+Carrot, $2, 22235/
+Onion, $2, 22236/
+Olive Oil, $9, 45678/
+Edamame, $2, 22237/
+Banana, $2, 45673/
+Granola, $6, 23453/
+Maple Syrup, $4, 89898/
+Flour, $10, 77789/
+Baking Powder, $4, 34561/
+Baking Sode, $3, 34562/
+Vanilla Extract, $8, 34563/
+Sugar, $1, 34564/
+Salt, $1, 34565/
+Paprika, $1, 34566/
+Garlic Powder, $1, 34567/

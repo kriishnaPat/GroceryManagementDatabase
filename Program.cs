@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Text;
 
 namespace Data_Managment
 {
@@ -7,13 +9,8 @@ namespace Data_Managment
     {
         public static void Main(string[] args)
         {
-        String groceryText = System.IO.File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
-        Console.WriteLine(groceryText);
-        String[] items = Regex.Split(groceryText, @"\s+");
-        Console.WriteLine("Grocery Items:");
-        for (int i = 0; i < items.Length; i++) {
-            Console.WriteLine(items[i]);
-        }
+        String groceryText = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
+        String[] items = Regex.Split(groceryText, @"/");
   
             while (true){
                 //usercheck();
@@ -29,6 +26,10 @@ namespace Data_Managment
             Console.Write("Enter the number for your choice: ");
             int user_choice = Convert.ToInt32(Console.ReadLine());
             if (user_choice == 1){
+                Console.WriteLine("Here are all the grocery items availble in store, there prices and item codes:");
+                for (int i = 0; i < items.Length; i++){
+                    Console.Write(items[i]);
+                }
             } 
             else if (user_choice == 2){
             }
