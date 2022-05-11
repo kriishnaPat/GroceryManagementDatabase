@@ -7,11 +7,12 @@ namespace Data_Managment
     {
         public static void Main(string[] args)
         {
-        String aliceText = System.IO.File.ReadAllText(@"data-files/grocery.txt");
-        String[] aliceWords = Regex.Split(aliceText, @"\s+");
-        Console.WriteLine("***ALICE WORDS***");
-        for (int i = 0; i < aliceWords.Length; i++) {
-            Console.WriteLine(aliceWords[i]);
+        String groceryText = System.IO.File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
+        Console.WriteLine(groceryText);
+        String[] items = Regex.Split(groceryText, @"\s+");
+        Console.WriteLine("Grocery Items:");
+        for (int i = 0; i < items.Length; i++) {
+            Console.WriteLine(items[i]);
         }
   
             while (true){
