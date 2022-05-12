@@ -2,6 +2,39 @@
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Text;
+using System.Text.Json;
+
+var options = new JsonSerializerOptions { IncludeFields = true };
+string jsonString = JsonSerializer.Serialize(data, options);
+Console.WriteLine(jsonString);
+
+File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\shopping.txt", jsonString);
+
+string jsonStringFromFile = File.ReadAllText(@"F:\__CS\C#\file-io-json-demo\data2.txt");
+Console.WriteLine(jsonStringFromFile);
+
+List<Point>? data2 = JsonSerializer.Deserialize<List<Point>>(jsonStringFromFile, options);
+Console.WriteLine(data2);
+if (data2 != null) {
+    foreach (var point in data2) {
+        Console.WriteLine(point);
+    }
+}
+
+
+class Point {
+    public string x;
+    public string y;
+
+    public Point(string x, string y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public override string ToString() {
+        return $"({this.x},{this.y})";
+    }
+}
 
 namespace Data_Managment
 {
@@ -42,9 +75,21 @@ namespace Data_Managment
                 Hyigene: 223");
                 string category = Console.ReadLine();
                 Console.Write(category);
-                Array.FindAll(items, category);
+                for (int i = 0; i < items.Length; i++){
+                    if (items[i].Contains(category) == true){
+                        Console.WriteLine(items[i]);
+                    }
+                }
             }
             else if (user_choice == 3){ 
+                Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+                string want = Console.ReadLine();
+                Console.Write(want);
+                for (int i = 0; i < items.Length; i++){
+                    if (items[i].Contains(want) == true){
+                        ;
+                    }
+                }
             }
             else if (user_choice == 4){
             }
