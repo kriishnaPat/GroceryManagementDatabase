@@ -1,7 +1,7 @@
 Rice, $10, 34567/
 White Bread, $5, 23493/
 Whole Grain Bread, $5, 23494/
-Milk, $3, 09876/
+Milk, $3, 99876/
 Apple, $2, 45678/
 Orange, $2, 45677/
 Lemon, $2, 45676/

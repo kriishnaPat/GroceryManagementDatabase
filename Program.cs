@@ -16,6 +16,7 @@ namespace Data_Managment
                 //usercheck();
                 //diplays menu options
                 Console.WriteLine(@"
+
 1.Display all of the products
 2.Display certain products
 3.Select products to add to shopping cart.
@@ -26,12 +27,22 @@ namespace Data_Managment
             Console.Write("Enter the number for your choice: ");
             int user_choice = Convert.ToInt32(Console.ReadLine());
             if (user_choice == 1){
-                Console.WriteLine("Here are all the grocery items availble in store, there prices and item codes:");
+                Console.WriteLine("Here are all the grocery items availble in store, there prices, and item codes:");
                 for (int i = 0; i < items.Length; i++){
                     Console.Write(items[i]);
                 }
             } 
             else if (user_choice == 2){
+                Console.Write(@"Please enter the product area code of the types of products you are looking for:
+                Baked goods: 234
+                Dairy: 998
+                Fruits/Vegetables: 222
+                Seasoning: 345
+                Condiments: 565
+                Hyigene: 223");
+                string category = Console.ReadLine();
+                Console.Write(category);
+                Array.FindAll(items, category);
             }
             else if (user_choice == 3){ 
             }
