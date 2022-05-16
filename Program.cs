@@ -3,38 +3,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Text;
 using System.Text.Json;
-
-var options = new JsonSerializerOptions { IncludeFields = true };
-string jsonString = JsonSerializer.Serialize(data, options);
-Console.WriteLine(jsonString);
-
-File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\shopping.txt", jsonString);
-
-string jsonStringFromFile = File.ReadAllText(@"F:\__CS\C#\file-io-json-demo\data2.txt");
-Console.WriteLine(jsonStringFromFile);
-
-List<Point>? data2 = JsonSerializer.Deserialize<List<Point>>(jsonStringFromFile, options);
-Console.WriteLine(data2);
-if (data2 != null) {
-    foreach (var point in data2) {
-        Console.WriteLine(point);
-    }
-}
-
-
-class Point {
-    public string x;
-    public string y;
-
-    public Point(string x, string y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public override string ToString() {
-        return $"({this.x},{this.y})";
-    }
-}
+using System.Collections.Generic;
 
 namespace Data_Managment
 {
@@ -44,9 +13,9 @@ namespace Data_Managment
         {
         String groceryText = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
         String[] items = Regex.Split(groceryText, @"/");
-  
+
             while (true){
-                //usercheck();
+                usercheck();
                 //diplays menu options
                 Console.WriteLine(@"
 
@@ -87,11 +56,19 @@ namespace Data_Managment
                 Console.Write(want);
                 for (int i = 0; i < items.Length; i++){
                     if (items[i].Contains(want) == true){
-                        ;
+                        
                     }
                 }
             }
             else if (user_choice == 4){
+                Console.Write(@"Please enter the name or product number, for the product you would like to remove from your shopping cart: ");
+                string remove = Console.ReadLine();
+                Console.Write(remove);
+                for (int i = 0; i < items.Length; i++){
+                    if (items[i].Contains(remove) == true){
+
+                    }
+                }
             }
             else if (user_choice == 5){
             }
@@ -102,8 +79,34 @@ namespace Data_Managment
                 Console.Write("That was not a valid choice!");
             }
         }
+        static void usercheck(){
+                List<List<string>> userChoice = new List<List<string>>();
+                List<string> userPass = new List<string>();
+                Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
+                string user = Console.ReadLine();
+                if (user == "1"){
+                Console.WriteLine("Enter a username of your choosing : ");
+                string username = Console.ReadLine();
+                Console.WriteLine("Enter a Password of your choosing: ");
+                string password = Console.ReadLine();
+                userPass.Add(username);
+                userChoice.Add(userPass);
+                }
+                else if (user == "2"){
+                Console.WriteLine("Enter Username: ");
+                string username = Console.ReadLine();
+                Console.WriteLine("Enter Password: ");
+                string password = Console.ReadLine();
+                    if(username == "bookreader" && password == "123456789"){
+                        Console.Write($@"Welcome {username} to the grocery store!");
+                        correct = true;
+                        break;
+                    }else{
+                            Console.WriteLine("Either your username or password is incorrect please try again.");
+                        }
+                }
         }
     }
 }
-
+}
 
