@@ -90,7 +90,9 @@ namespace Data_Managment
                 Console.WriteLine("Enter a Password of your choosing: ");
                 string password = Console.ReadLine();
                 userPass.Add(username);
+                userPass.Add(password);
                 userChoice.Add(userPass);
+                Display(userChoice);
                 }
                 else if (user == "2"){
                 Console.WriteLine("Enter Username: ");
@@ -99,14 +101,25 @@ namespace Data_Managment
                 string password = Console.ReadLine();
                     if(username == "bookreader" && password == "123456789"){
                         Console.Write($@"Welcome {username} to the grocery store!");
-                        correct = true;
-                        break;
                     }else{
                             Console.WriteLine("Either your username or password is incorrect please try again.");
                         }
                 }
         }
+                static void Display(List<List<string>> list)
+            {
+                Console.WriteLine("Elements:");
+                foreach (var sublist in list)
+                {
+                    foreach (var value in sublist)
+                    {
+                        Console.Write(value);
+                        Console.Write(' ');
+                    }
+                    Console.WriteLine();
+                }
+  }
+    }
+
     }
 }
-}
-
