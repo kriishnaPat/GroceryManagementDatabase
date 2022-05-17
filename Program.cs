@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 namespace Data_Managment
 {
+
     class Program
     {
         public static void Main(string[] args)
@@ -79,6 +80,7 @@ namespace Data_Managment
                 Console.Write("That was not a valid choice!");
             }
         }
+
         static void usercheck(){
                 List<List<string>> userChoice = new List<List<string>>();
                 List<string> userPass = new List<string>();
@@ -93,19 +95,41 @@ namespace Data_Managment
                 userPass.Add(password);
                 userChoice.Add(userPass);
                 Display(userChoice);
+                var options = new JsonSerializerOptions { IncludeFields = true };
+                string jsonString = JsonSerializer.Serialize(userChoice, options);
+                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
+                Console.WriteLine(jsonString);
+                string jsonStringFromFile = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data2.txt");
+                Console.WriteLine(jsonStringFromFile);
                 }
                 else if (user == "2"){
                 Console.WriteLine("Enter Username: ");
-                string username = Console.ReadLine();
+                string usernameN = Console.ReadLine();
                 Console.WriteLine("Enter Password: ");
-                string password = Console.ReadLine();
-                    if(username == "bookreader" && password == "123456789"){
-                        Console.Write($@"Welcome {username} to the grocery store!");
+                string passwordN = Console.ReadLine();
+                int index = userPass.IndexOf(usernameN);
+                    if(userChoice[index].Contains(passwordN) == true){
+                        Console.Write($@"Welcome {usernameN} to the grocery store!");
                     }else{
                             Console.WriteLine("Either your username or password is incorrect please try again.");
                         }
                 }
+        }}
+        class Item {
+            public string name;
+            public string price;
+            public string number; 
+
+            public Item(string name, string price, string number) {
+            this.name = name;
+            this.price = price;
+            this.number = number;
+    }
+            
+            public override string ToString() {
+            return $"({this.name},{this.price},{this.number})";
         }
+        
                 static void Display(List<List<string>> list)
             {
                 Console.WriteLine("Elements:");
@@ -120,6 +144,5 @@ namespace Data_Managment
                 }
   }
     }
-
     }
 }
