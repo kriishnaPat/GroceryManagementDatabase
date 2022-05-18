@@ -12,6 +12,9 @@ namespace Data_Managment
     {
         public static void Main(string[] args)
         {
+        //load stuff on file already
+        string jsonStringFromFile = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt");
+        Console.WriteLine(jsonStringFromFile);
         String groceryText = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
         String[] items = Regex.Split(groceryText, @"/");
         
@@ -83,10 +86,51 @@ namespace Data_Managment
         }
 
         static void usercheck(){
-                List<List<string>> userChoice = new List<List<string>>();
-                List<string> userPass = new List<string>();
+            string jsonStringFromFile = File.ReadAllText(@"data-files\data.txt");
+            Console.Write(jsonStringFromFile);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            List<string> userPass = new List<string>();
+            
+            List<List<string>> data = JsonSerializer.Deserialize<List<List<string>>>(jsonStringFromFile);
+
                 Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
                 string user = Console.ReadLine();
+                
                 if (user == "1"){
                 Console.WriteLine("Enter a username of your choosing : ");
                 string username = Console.ReadLine();
@@ -95,19 +139,8 @@ namespace Data_Managment
                 userPass.Add(username);
                 userPass.Add(password);
                 userChoice.Add(userPass);
-                
-                //load stuff on file already
-                string jsonStringFromFile = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt");
-                Console.WriteLine(jsonStringFromFile);
-                
-                //convert data to string
-                var options = new JsonSerializerOptions { IncludeFields = true };
-                string jsonString = JsonSerializer.Serialize(userChoice, options);
-                Console.WriteLine(jsonString);
-
-                //write the data to file
-                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
-                
+                string jsonString = JsonSerializer.Serialize(userChoice);
+                File.WriteAllText(@"data-files\data.txt", jsonString);
                 }
                 else if (user == "2"){
                 Console.WriteLine("Enter Username: ");
@@ -115,11 +148,11 @@ namespace Data_Managment
                 Console.WriteLine("Enter Password: ");
                 string passwordN = Console.ReadLine();
                 int index = userPass.IndexOf(usernameN);
-                    if(userChoice[index].Contains(passwordN) == true){
-                        Console.Write($@"Welcome {usernameN} to the grocery store!");
-                    }else{
-                            Console.WriteLine("Either your username or password is incorrect please try again.");
-                        }
+                    //if(userChoice[index].Contains(passwordN) == true){
+                        //Console.Write($@"Welcome {usernameN} to the grocery store!");
+                    //}else{
+                            //Console.WriteLine("Either your username or password is incorrect please try again.");
+                        //}
                 }
         }}
         class Item {
