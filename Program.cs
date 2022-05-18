@@ -14,6 +14,7 @@ namespace Data_Managment
         {
         String groceryText = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
         String[] items = Regex.Split(groceryText, @"/");
+        
 
             while (true){
                 usercheck();
@@ -94,13 +95,19 @@ namespace Data_Managment
                 userPass.Add(username);
                 userPass.Add(password);
                 userChoice.Add(userPass);
-                Display(userChoice);
+                
+                //load stuff on file already
+                string jsonStringFromFile = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt");
+                Console.WriteLine(jsonStringFromFile);
+                
+                //convert data to string
                 var options = new JsonSerializerOptions { IncludeFields = true };
                 string jsonString = JsonSerializer.Serialize(userChoice, options);
-                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
                 Console.WriteLine(jsonString);
-                string jsonStringFromFile = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data2.txt");
-                Console.WriteLine(jsonStringFromFile);
+
+                //write the data to file
+                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
+                
                 }
                 else if (user == "2"){
                 Console.WriteLine("Enter Username: ");
