@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zncK+9Wi+BizmbeM3539HzgbdpYV2e+36sbvrghrehL2K0kOG995gNEGnQvnEcBQB7cwtFubCjDSEuf55ngGoQ==",
+  "dgSpecHash": "AgPKHeXCNwrwTB+XmT9/qFXNuXQRRJwQdJFLkDuxQ/uIZFuP9/3xbfFu+7YduZ1XSnUU8I4VDhRjIuYzGNOplw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\k.patel61\\Desktop\\Data_Managment\\Data_Managment.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/Users/sanjaypatel/Documents/Data_Managment/Data_Managment.csproj",
+  "expectedPackageFiles": [
+    "/Users/sanjaypatel/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/sanjaypatel/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/sanjaypatel/.nuget/packages/microsoft.netcore.app.host.osx-x64/5.0.17/microsoft.netcore.app.host.osx-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

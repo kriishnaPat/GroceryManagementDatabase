@@ -13,10 +13,10 @@ namespace Data_Managment
         public static void Main(string[] args)
         {
         //load stuff on file already
-        String groceryText = File.ReadAllText(@"data-files\grocery.txt");
+        String groceryText = File.ReadAllText(@"data-files/grocery.txt");
         String[] items = Regex.Split(groceryText, @"/");
         
-        string jsonStringFromFile = File.ReadAllText(@"data-files\data.txt");
+        string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
         List<List<string>> data = JsonSerializer.Deserialize<List<List<string>>>(jsonStringFromFile);
         Console.Write(jsonStringFromFile);
         if (jsonStringFromFile == " "){
@@ -63,7 +63,7 @@ namespace Data_Managment
                 }
             }
             else if (user_choice == 3){ 
-                editCart(userChoice, items);
+                //editCart(userChoice, items);
             }
             else if (user_choice == 4){
                 Console.Write(@"Please enter the name or product number, for the product you would like to remove from your shopping cart: ");
@@ -84,8 +84,8 @@ namespace Data_Managment
             }
         }
             static void usercheck(List<List<string>> userChoice){
-                bool loginCorrect = false;
-                while(loginCorrect != true){
+                //bool loginCorrect = false;
+                
                     List<string> userPass = new List<string>();
                     Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
                     string user = Console.ReadLine();
@@ -107,48 +107,34 @@ namespace Data_Managment
                     string passwordN = Console.ReadLine();
                     int total = userChoice.ToArray().Length;
                     Console.Write(total);
-                    //Display(userChoice);
                     for (int i = 0; i < userChoice.ToArray().Length; i++){
+                        Console.Write(i);
                         if(userChoice[i][0] == usernameN && userChoice[i][1] == passwordN){
                             int index = i;
                             Console.WriteLine(@$"Welcome {usernameN} to the grocery store!");
-                            loginCorrect = true;
+                            //loginCorrect = true;
                 }
             }
         }
         }
-         }
-        static void editCart(List<List<List<string>>> userChoice, List<string> items){
-                    List<string> shoppingCart = new List<string>();
-                    Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
-                    string want = Console.ReadLine();
-                    Console.Write(want);
-                    for (int i = 0; i < items.Length; i++){
-                        if (items[i].Contains(want) == true){
-                            Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
-                            string yn = Console.ReadLine();
-                            if (yn == "1"){
-                                string itemAdd = items[i];
-                                shoppingCart.Add(itemAdd);
-                                userChoice[i].Add(shoppingCart);
-                            }
-                        }
+         
+        // static void editCart(List<string> userChoice, List<string> items){
+        //             List<string> shoppingCart = new List<string>();
+        //             Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+        //             string want = Console.ReadLine();
+        //             Console.Write(want);
+        //             for (int i = 0; i < 5; i++){
+        //                 if (items[i].Contains(want) == true){
+        //                     Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+        //                     string yn = Console.ReadLine();
+        //                     if (yn == "1"){
+        //                         string itemAdd = items[i];
+        //                         shoppingCart.Add(itemAdd);
+        //                         userChoice[i].Add(shoppingCart);
+        //                     }
+        //                 }
                     }
             }
         }
 
-    static void Display(List<List<int>> list)
-    {
-        Console.WriteLine("Elements:");
-        foreach (var sublist in list)
-        {
-            foreach (var value in sublist)
-            {
-                Console.Write(value);
-                Console.Write(' ');
-            }
-            Console.WriteLine();
-        }
-    }
-}
-}
+
