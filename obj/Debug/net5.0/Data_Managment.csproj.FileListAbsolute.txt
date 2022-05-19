@@ -21,3 +21,12 @@ C:/Users/k.patel61/Desktop/Data_Managment/obj/Debug/net5.0/Data_Managment.genrun
 /Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/Data_Managment.csproj.CoreCompileInputs.cache
 /Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/Data_Managment.dll
 /Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/Data_Managment.pdb
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment.deps.json
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment.runtimeconfig.json
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment.runtimeconfig.dev.json
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment.dll
+/Users/sanjaypatel/Documents/Data_Managment/bin/Debug/net5.0/Data_Managment.pdb
+/Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/refint/Data_Managment.dll
+/Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/Data_Managment.genruntimeconfig.cache
+/Users/sanjaypatel/Documents/Data_Managment/obj/Debug/net5.0/ref/Data_Managment.dll

@@ -13,10 +13,10 @@ namespace Data_Managment
         public static void Main(string[] args)
         {
         //load stuff on file already
-        String groceryText = File.ReadAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\grocery.txt");
+        String groceryText = File.ReadAllText(@"data-files/grocery.txt");
         String[] items = Regex.Split(groceryText, @"/");
         
-        string jsonStringFromFile = File.ReadAllText(@"data-files\data.txt");
+        string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
         List<List<string>> data = JsonSerializer.Deserialize<List<List<string>>>(jsonStringFromFile);
         Console.Write(jsonStringFromFile);
         if (jsonStringFromFile == " "){
@@ -91,36 +91,50 @@ namespace Data_Managment
             }
         }
             static void usercheck(List<List<string>> userChoice){
-            
-        }
-        class Item {
-            public string name;
-            public string price;
-            public string number; 
-
-            public Item(string name, string price, string number) {
-            this.name = name;
-            this.price = price;
-            this.number = number;
-    }
-            
-            public override string ToString() {
-            return $"({this.name},{this.price},{this.number})";
-        }
-        
-                static void Display(List<List<string>> list)
-            {
-                Console.WriteLine("Elements:");
-                foreach (var sublist in list)
-                {
-                    foreach (var value in sublist)
-                    {
-                        Console.Write(value);
-                        Console.Write(' ');
-                    }
-                    Console.WriteLine();
+            List<string> userPass = new List<string>();
+            Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
+            string user = Console.ReadLine();
+            if (user == "1"){
+            Console.WriteLine("Enter a username of your choosing : ");
+            string username = Console.ReadLine();
+            Console.WriteLine("Enter a Password of your choosing: ");
+            string password = Console.ReadLine();
+            userPass.Add(username);
+            userPass.Add(password);
+            userChoice.Add(userPass);
+            string jsonString = JsonSerializer.Serialize(userChoice);
+            File.WriteAllText(@"data-files\data.txt", jsonString);
+            }
+            else if (user == "2"){
+            Console.WriteLine("Enter Username: ");
+            string usernameN = Console.ReadLine();
+            Console.WriteLine("Enter Password: ");
+            string passwordN = Console.ReadLine();
+            int total = userChoice.ToArray().Length;
+            Console.Write(total);
+            Display(userChoice);
+            for (int i = 0; i < userChoice.ToArray().Length; i++){
+                if(userChoice[i][0] == usernameN && userChoice[i][1] == passwordN){
+                    Console.WriteLine(@$"Welcome {usernameN} to the grocery store!");
                 }
-  }
+            }
+        }
+        }
+        }
+
+    static void Display(List<List<int>> list)
+    {
+        // Part 2: loop over and display everything in the List.
+        Console.WriteLine("Elements:");
+        foreach (var sublist in list)
+        {
+            foreach (var value in sublist)
+            {
+                Console.Write(value);
+                Console.Write(' ');
+            }
+            Console.WriteLine();
+        }
     }
-    }
+}
 }
