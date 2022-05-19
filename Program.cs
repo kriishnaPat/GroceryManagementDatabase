@@ -63,22 +63,7 @@ namespace Data_Managment
                 }
             }
             else if (user_choice == 3){ 
-                List<string> shoppingCart = new List<string>();
-                Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
-                string want = Console.ReadLine();
-                Console.Write(want);
-                for (int i = 0; i < items.Length; i++){
-                    if (items[i].Contains(want) == true){
-                        Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
-                        string yn = Console.ReadLine();
-                        if (yn == "1"){
-                            string itemAdd = items[i];
-                            shoppingCart.Add(itemAdd);
-                            userChoice[i].Add(shoppingCart);
-                        }
-                    }
-
-                }
+                editCart(userChoice, items);
             }
             else if (user_choice == 4){
                 Console.Write(@"Please enter the name or product number, for the product you would like to remove from your shopping cart: ");
@@ -133,6 +118,23 @@ namespace Data_Managment
         }
         }
          }
+        static void editCart(List<List<List<string>>> userChoice, List<string> items){
+                    List<string> shoppingCart = new List<string>();
+                    Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+                    string want = Console.ReadLine();
+                    Console.Write(want);
+                    for (int i = 0; i < items.Length; i++){
+                        if (items[i].Contains(want) == true){
+                            Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+                            string yn = Console.ReadLine();
+                            if (yn == "1"){
+                                string itemAdd = items[i];
+                                shoppingCart.Add(itemAdd);
+                                userChoice[i].Add(shoppingCart);
+                            }
+                        }
+                    }
+            }
         }
 
     static void Display(List<List<int>> list)
