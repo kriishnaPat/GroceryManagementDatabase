@@ -68,7 +68,6 @@ namespace Data_Managment
                 Console.Write(want);
                 for (int i = 0; i < items.Length; i++){
                     if (items[i].Contains(want) == true){
-                        
                     }
                 }
             }
@@ -95,6 +94,7 @@ namespace Data_Managment
                 List<string> userPass = new List<string>();
                 Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
                 string user = Console.ReadLine();
+
                 if (user == "1"){
                 Console.WriteLine("Enter a username of your choosing : ");
                 string username = Console.ReadLine();
@@ -103,8 +103,20 @@ namespace Data_Managment
                 userPass.Add(username);
                 userPass.Add(password);
                 userChoice.Add(userPass);
+<<<<<<< Updated upstream
                 string jsonString = JsonSerializer.Serialize(userChoice);
                 File.WriteAllText(@"data-files\data.txt", jsonString);
+=======
+                Display(userChoice);
+
+                //data to json
+                var options = new JsonSerializerOptions { IncludeFields = true };
+                string jsonString = JsonSerializer.Serialize(userChoice, options);
+                Console.Write(jsonString);
+
+                //save json stuff to file 
+                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
+>>>>>>> Stashed changes
                 }
                 else if (user == "2"){
                 Console.WriteLine("Enter Username: ");
