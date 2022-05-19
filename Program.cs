@@ -91,46 +91,8 @@ namespace Data_Managment
             }
         }
             static void usercheck(List<List<string>> userChoice){
-                List<string> userPass = new List<string>();
-                Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
-                string user = Console.ReadLine();
-
-                if (user == "1"){
-                Console.WriteLine("Enter a username of your choosing : ");
-                string username = Console.ReadLine();
-                Console.WriteLine("Enter a Password of your choosing: ");
-                string password = Console.ReadLine();
-                userPass.Add(username);
-                userPass.Add(password);
-                userChoice.Add(userPass);
-<<<<<<< Updated upstream
-                string jsonString = JsonSerializer.Serialize(userChoice);
-                File.WriteAllText(@"data-files\data.txt", jsonString);
-=======
-                Display(userChoice);
-
-                //data to json
-                var options = new JsonSerializerOptions { IncludeFields = true };
-                string jsonString = JsonSerializer.Serialize(userChoice, options);
-                Console.Write(jsonString);
-
-                //save json stuff to file 
-                File.WriteAllText(@"C:\Users\k.patel61\Desktop\Data_Managment\data-files\data.txt", jsonString);
->>>>>>> Stashed changes
-                }
-                else if (user == "2"){
-                Console.WriteLine("Enter Username: ");
-                string usernameN = Console.ReadLine();
-                Console.WriteLine("Enter Password: ");
-                string passwordN = Console.ReadLine();
-                int index = userPass.IndexOf(usernameN);
-                    if(userChoice[index].Contains(passwordN) == true){
-                        Console.Write($@"Welcome {usernameN} to the grocery store!");
-                    }else{
-                        Console.WriteLine("Either your username or password is incorrect please try again.");
-                    }
-                }
-        }}
+            
+        }
         class Item {
             public string name;
             public string price;
