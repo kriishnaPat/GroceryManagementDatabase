@@ -63,12 +63,21 @@ namespace Data_Managment
                 }
             }
             else if (user_choice == 3){ 
+                List<string> shoppingCart = new List<string>();
                 Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
                 string want = Console.ReadLine();
                 Console.Write(want);
                 for (int i = 0; i < items.Length; i++){
                     if (items[i].Contains(want) == true){
+                        Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+                        string yn = Console.ReadLine();
+                        if (yn == "1"){
+                            string itemAdd = items[i];
+                            shoppingCart.Add(itemAdd);
+                            userChoice[i].Add(shoppingCart);
+                        }
                     }
+
                 }
             }
             else if (user_choice == 4){
@@ -77,7 +86,6 @@ namespace Data_Managment
                 Console.Write(remove);
                 for (int i = 0; i < items.Length; i++){
                     if (items[i].Contains(remove) == true){
-
                     }
                 }
             }
@@ -117,6 +125,7 @@ namespace Data_Managment
                     //Display(userChoice);
                     for (int i = 0; i < userChoice.ToArray().Length; i++){
                         if(userChoice[i][0] == usernameN && userChoice[i][1] == passwordN){
+                            int index = i;
                             Console.WriteLine(@$"Welcome {usernameN} to the grocery store!");
                             loginCorrect = true;
                 }
