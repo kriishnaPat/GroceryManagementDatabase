@@ -15,21 +15,7 @@ namespace Data_Managment
             //load stuff on file already
             String groceryText = File.ReadAllText(@"data-files/grocery.txt");
             String[] items = Regex.Split(groceryText, @"/");
-
-            string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
-            List<List<List<string>>> data = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
-            Console.Write(jsonStringFromFile);
-            if (jsonStringFromFile == " ")
-            {
-                List<List<List<string>>> userChoice = new List<List<List<string>>>();
-                usercheck(userChoice);
-            }
-            else
-            {
-                List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
-                usercheck(userChoice);
-            }
-
+            retrieveFile();
             while (true)
             {
                 //diplays menu options
@@ -77,7 +63,24 @@ namespace Data_Managment
                 }
                 else if (user_choice == 3)
                 {
-                    editCart(userChoice, items);
+                    retrieveFile();
+                    List<string> shoppingCart = new List<string>();
+                    Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+                    string want = Console.ReadLine();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (items[i].Contains(want) == true)
+                        {
+                            Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+                            string yn = Console.ReadLine();
+                            if (yn == "1")
+                            {
+                                string want = items[i];
+                                shoppingCart.Add(want);
+                                userChoice[i].Add(shoppingCart);
+                            }
+                        }
+                    }
                 }
                 else if (user_choice == 4)
                 {
@@ -159,30 +162,46 @@ namespace Data_Managment
                     }
             }
         }
-
-            static void editCart(List<string> items)
-            {
-                List<string> shoppingCart = new List<string>();
-                Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
-                string want = Console.ReadLine();
-                Console.Write(want);
-                for (int i = 0; i < 5; i++)
+            static void retrieveFile(){
+                string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
+                List<List<List<string>>> data = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
+                Console.Write(jsonStringFromFile);
+                if (jsonStringFromFile == " ")
                 {
-                    if (items[i].Contains(want) == true)
-                    {
-                        Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
-                        string yn = Console.ReadLine();
-                        if (yn == "1")
-                        {
-                            string want = items[i];
-                            shoppingCart.Add(want);
-                            userChoice[i].Add(shoppingCart);
-                        }
-                    }
+                    public static List<List<List<string>>> userChoice = new List<List<List<string>>>();
+                    usercheck(userChoice);
+
+                }
+                else
+                {
+                    public static List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
+                    usercheck(userChoice);
                 }
             }
-        }
+        //     static void editCart(List<string> items)
+        //     {
+        //         List<string> shoppingCart = new List<string>();
+        //         Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+        //         string want = Console.ReadLine();
+        //         Console.Write(want);
+        //         for (int i = 0; i < 5; i++)
+        //         {
+        //             if (items[i].Contains(want) == true)
+        //             {
+        //                 Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+        //                 string yn = Console.ReadLine();
+        //                 if (yn == "1")
+        //                 {
+        //                     string want = items[i];
+        //                     shoppingCart.Add(want);
+        //                     userChoice[i].Add(shoppingCart);
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
     }
+}
 }
 
 
