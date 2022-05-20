@@ -77,7 +77,7 @@ namespace Data_Managment
                 }
                 else if (user_choice == 3)
                 {
-                    editCart(userChoice, items);
+                    // editCart(userChoice, items);
                 }
                 else if (user_choice == 4)
                 {
@@ -108,7 +108,9 @@ namespace Data_Managment
                 bool userExists = false;
                 while (!userExists)
                 {
-                    List<string> userPass = new List<string>();
+                    List<List<string>> userPass = new List<List<string>>();
+                    List<string> profile = new List<string>();
+                    List<string> cart = new List<string>();
                     Console.WriteLine("Enter 1 if you are a new user, enter 2 if you are an exisiting user: ");
                     string user = Console.ReadLine();
                     if (user == "1")
@@ -124,9 +126,10 @@ namespace Data_Managment
                                 Console.WriteLine(@$"Please try again this username is taken.");
                             }
                         }
-                        userPass.Add(username);
-                        userPass.Add(password);
-                        userChoice.Add(userPass);
+                        profile.Add(username);
+                        profile.Add(password);
+                        userChoice.Add(profile);
+                        userChoice.Add(cart);
                         string jsonString = JsonSerializer.Serialize(userChoice);
                         File.WriteAllText(@"data-files\data.txt", jsonString);
                         Console.WriteLine("Your account has been made please sign in now!");
@@ -156,27 +159,29 @@ namespace Data_Managment
                 }
             }
 
-            static void editCart(List<string> userChoice, List<string> items)
-            {
-                List<string> shoppingCart = new List<string>();
-                Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
-                string want = Console.ReadLine();
-                Console.Write(want);
-                for (int i = 0; i < 5; i++)
-                {
-                    if (items[i].Contains(want) == true)
-                    {
-                        Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
-                        string yn = Console.ReadLine();
-                        if (yn == "1")
-                        {
-                            string itemAdd = items[i];
-                            shoppingCart.Add(itemAdd);
-                            userChoice[i].Add(shoppingCart);
-                        }
-                    }
-                }
-            }
+            // static void editCart(List<string> items)
+            // {
+            //     List<string> shoppingCart = new List<string>();
+            //     Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
+            //     string want = Console.ReadLine();
+            //     Console.Write(want);
+            //     for (int i = 0; i < 5; i++)
+            //     {
+            //         if (items[i].Contains(want) == true)
+            //         {
+            //             Console.Write($"{items[i]}Is this what you are looking for, press 1 for yes or 2 for no:");
+            //             string yn = Console.ReadLine();
+            //             if (yn == "1")
+            //             {
+            //                 string want = items[i];
+            //                 shoppingCart.Add(want);
+            //                 userChoice[i].Add(shoppingCart);
+            //             }
+            //         }
+            //     }
+            // }
         }
+    }
+}
 
 
