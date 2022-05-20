@@ -22,7 +22,7 @@ Granola, $6, 23453/
 Maple Syrup, $4, 89898/
 Flour, $10, 77789/
 Baking Powder, $4, 34561/
-Baking Sode, $3, 34562/
+Baking Soda, $3, 34562/
 Vanilla Extract, $8, 34563/
 Sugar, $1, 34564/
 Salt, $1, 34565/
