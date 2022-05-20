@@ -1,1 +1,1 @@
-[["krish","pat"],["kr","pa"],["ne","pa"]]
+[["krish","pat"],["kp","pa"]]
