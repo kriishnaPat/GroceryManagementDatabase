@@ -57,14 +57,14 @@ namespace Data_Managment
                 }
                 else if (user_choice == 2)
                 {
-                    Console.Write(@"Please enter the product area code of the types of products you are looking for:
+                    Console.WriteLine(@"Please enter the product area code of the types of products you are looking for:
                 Baked goods: 234
                 Dairy: 998
                 Fruits/Vegetables: 222
                 Seasoning: 345
                 Condiments: 565
                 Hyigene: 223");
-                    string category = Console.ReadLine(); //fix if last 3 digits are 
+                    string category = Console.ReadLine();
                     Console.WriteLine(category);
                     for (int i = 0; i < items.Length; i++)
                     {
@@ -80,17 +80,15 @@ namespace Data_Managment
                     List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
                     List<string> shoppingCart = new List<string>();
                     Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
-                    string want = Console.ReadLine();
+                    string want = Console.ReadLine().ToLower();
                     for (int i = 0; i < items.Length; i++)
                     {
                         if (items[i].Contains(want) == true)
                         {
                             userChoice[index][1].Add(items[i]);
                             Console.WriteLine($"{items[i]} has been added to your cart!");
-                            break;
                         }
                     }
-                    Console.WriteLine("That item does not exist");
                     string jsonString = JsonSerializer.Serialize(userChoice);
                     File.WriteAllText(@"data-files/data.txt", jsonString);
                 }
@@ -99,7 +97,7 @@ namespace Data_Managment
                     string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
                     List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
                     Console.WriteLine(@"Please enter the name or product number, for the product you would like to remove from your shopping cart: ");
-                    string remove = Console.ReadLine();
+                    string remove = Console.ReadLine().ToLower();
                     for (int i = 0; i < userChoice[index][1].ToArray().Length; i++)
                     {
                         if (userChoice[index][1][i].Contains(remove) == true)
@@ -107,10 +105,6 @@ namespace Data_Managment
                             string removeTrue = userChoice[index][1][i];
                             userChoice[index][1].Remove(removeTrue);
                             Console.WriteLine($"{removeTrue} has been removed from your cart!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("That item was not found in your cart");
                         }
                     }
                     string jsonString = JsonSerializer.Serialize(userChoice);
@@ -124,9 +118,7 @@ namespace Data_Managment
                     for (int i = 0; i < userChoice[index][1].ToArray().Length; i++)
                     {
                         Console.WriteLine(userChoice[index][1][i]);
-
                     }
-
                 }
                 else if (user_choice == 6)
                 {
@@ -171,7 +163,6 @@ namespace Data_Managment
                     }
                     else if (user == "2")
                     {
-
                         Console.WriteLine("Enter Username: ");
                         string usernameN = Console.ReadLine();
                         Console.WriteLine("Enter Password: ");
