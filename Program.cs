@@ -91,6 +91,8 @@ static class MainList{
                 }
                 else if (user_choice == 3)
                 {
+                    string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
+                    List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
                     List<string> shoppingCart = new List<string>();
                     Console.Write(@"Please enter the name or product number, for the product you would like to add to your shopping cart: ");
                     string want = Console.ReadLine();
@@ -103,24 +105,35 @@ static class MainList{
                             string yn = Console.ReadLine();
                             if (yn == "1")
                             {
-                                string itemWanted = items[i];
-                                shoppingCart.Add(itemWanted);
+                                userChoice[0][1].Add(items[i]);
                             }
                         }
                     }
-                    userChoice[0].Add(shoppingCart);
+                    string jsonString = JsonSerializer.Serialize(userChoice);
+                    File.WriteAllText(@"data-files/data.txt", jsonString);
                 }
                 else if (user_choice == 4)
                 {
+                    string jsonStringFromFile = File.ReadAllText(@"data-files/data.txt");
+                    List<List<List<string>>> userChoice = JsonSerializer.Deserialize<List<List<List<string>>>>(jsonStringFromFile);
                     Console.Write(@"Please enter the name or product number, for the product you would like to remove from your shopping cart: ");
                     string remove = Console.ReadLine();
                     Console.Write(remove);
-                    for (int i = 0; i < items.Length; i++)
+                    for (int i = 0; i < 50; i++)
                     {
-                        if (items[i].Contains(remove) == true)
+                        if (userChoice[0][1][i].Contains(remove) == true)
                         {
+                            Console.WriteLine(userChoice[0][1][i]);
+                            string removeTrue = userChoice[0][1][i];
+                            Console.Write($"{userChoice[0][1][i]} Is this what you want to remove, press 1 for yes or 2 for no:");
+                            string yn = Console.ReadLine();
+                            if (yn == "1"){
+                                userChoice[0][1].Remove("Salt, $1, 34565");
+                            }
                         }
                     }
+                    string jsonString = JsonSerializer.Serialize(userChoice);
+                    File.WriteAllText(@"data-files/data.txt", jsonString);
                 }
                 else if (user_choice == 5)
                 {
