@@ -1,1 +1,1 @@
-[[["krish","pat"],["\nSugar, $1, 34564","\nSalt, $1, 34565","\nSalt, $1, 34565"]],[["wow","me"],["\nSalt, $1, 34565","\nSalt, $1, 34565","Rice, $10, 34567","\nSalt, $1, 34565","\nWhite Bread, $5, 23493"]]]
+[[["krish","pat"],["\nsugar, $1, 34564"]]]
